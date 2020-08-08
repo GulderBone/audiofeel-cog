@@ -1,13 +1,15 @@
 package com.klimkiewicz.audiofeel.models;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 @Data
-@NoArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,4 +20,9 @@ public class User {
     private boolean active;
     @Column(columnDefinition = "VARCHAR(80) DEFAULT 'ROLE_USER'")
     private String roles;
+
+    public User() {
+        this.active = true;
+        this.roles = "ROLE_USER";
+    }
 }

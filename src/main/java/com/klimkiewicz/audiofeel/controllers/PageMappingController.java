@@ -11,22 +11,28 @@ public class PageMappingController {
 
     @GetMapping("/")
     public String home(Model model) {
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        if (username.equals("anonymousUser")) {
-            username = "Niezalogowany";
-        }
-        model.addAttribute("username", username);
+        model.addAttribute("username", getLoggedUser());
         return ("index");
     }
 
     @GetMapping("/register")
     public String user(Model model) {
         model.addAttribute("nowyUzytkownik", new User());
-        return ("register");
+        model.addAttribute("username", getLoggedUser());
+        return ("rejestracja");
     }
 
     @GetMapping("/admin")
     public String admin() {
         return ("<h1>Welcome Admin</h1>");
+    }
+
+    private String getLoggedUser() {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        if (username.equals("anonymousUser")) {
+            username = "Niezalogowany";
+        }
+
+        return username;
     }
 }
