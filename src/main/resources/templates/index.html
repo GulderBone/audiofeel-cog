@@ -1,12 +1,32 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link th:href="@{/styles/style.css}" rel="stylesheet"/>
     <meta charset="UTF-8">
     <title>Audio-feel</title>
 </head>
 <body>
-<a href="http://localhost:8080/login">Zaloguj</a>
-<h1 th:text="${username}"></h1>
+<header>
+    <h1>Audiofeel</h1>
+    <div>
+        <div style="display: flex; justify-content: space-between;">
+            <a href="http://localhost:8080/login">Zaloguj</a>
+        <a href="http://localhost:8080/register">Zarejestruj</a>
+        </div>
+        <h1 th:text="${username}"></h1>
+    </div>
+</header>
+<div class="left-sidebar">
+    Left Sidebar
+</div>
+<main>
+</main>
+<div class="right-sidebar">
+    Right Sidebar
+</div>
+<footer>
+    Footer Content — Header.com 2020
+</footer>
 </body>
 </html>

@@ -1,0 +1,21 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link th:href="@{/styles/style.css}" rel="stylesheet"/>
+    <link th:href="@{/styles/rejestracja.css}" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Audio-feel</title>
+</head>
+<body>
+Rejestracja
+
+<form th:action="@{/register-new-user}" th:object="${nowyUzytkownik}" method="post">
+    <label for="username">Nazwa użytkownika</label>
+    <input id="username" th:field="*{username}" type="text">
+    <label for="password">Hasło</label>
+    <input id="password" th:field="*{password}" type="password">
+    <input value="zarejestruj" type="submit">
+</form>
+</body>
+</html>

@@ -1,5 +1,6 @@
 package com.klimkiewicz.audiofeel.controllers;
 
+import com.klimkiewicz.audiofeel.models.User;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,9 +19,10 @@ public class PageMappingController {
         return ("index");
     }
 
-    @GetMapping("/user")
-    public String user() {
-        return ("<h1>Welcome User</h1>");
+    @GetMapping("/register")
+    public String user(Model model) {
+        model.addAttribute("nowyUzytkownik", new User());
+        return ("register");
     }
 
     @GetMapping("/admin")
